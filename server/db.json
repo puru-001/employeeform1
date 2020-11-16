@@ -1,0 +1,24 @@
+{
+  "employees": [
+    {
+      "name": "Purushottam Singh",
+      "position": "Angular Developer",
+      "email": "er.purushottam2493@gmail.com",
+      "contact": "07296984431",
+      "gender": "",
+      "city": "Bengaluru",
+      "date": "2020-11-17T18:30:00.000Z",
+      "id": 1
+    },
+    {
+      "name": "Purushottam Singh",
+      "position": "Angular Developer",
+      "email": "er.purushottam2493@gmail.com",
+      "contact": "07296984431",
+      "gender": null,
+      "city": "Bengaluru",
+      "date": "2020-11-17T18:30:00.000Z",
+      "id": 2
+    }
+  ]
+}

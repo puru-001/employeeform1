@@ -1,0 +1,81 @@
+<section class="container1">
+    <form class="employee-form" #myForm="ngForm">
+        <mat-grid-list cols="2" rowHeight="300px">
+            <mat-grid-tile>
+                <div class="control-container">
+                    <mat-form-field>
+                        <input type="text" name="name" matInput placeholder="Enter Employee Name*" [(ngModel)]="employeeObj.name">
+                        
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" name="position" matInput placeholder="Enter Position/Department*" [(ngModel)]="employeeObj.position">
+                         </mat-form-field>
+                    <mat-form-field>
+                        <input type="email" name="email" matInput placeholder="Enter Email ID*" [(ngModel)]="employeeObj.email">
+                        
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input name="contact" matInput placeholder="Enter Contact Number*" [(ngModel)]="employeeObj.contact">
+                        
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="control-container">
+                    <div class="bottom">
+                        <mat-radio-group name="gender" [(ngModel)]="employeeObj.gender">
+                            <mat-radio-button value="1">Male</mat-radio-button>
+                            <mat-radio-button value="2">Female</mat-radio-button>
+                            <mat-radio-button value="3">Other</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <mat-form-field>
+                        <input type="text" name="city" matInput placeholder="Enter City name*"[(ngModel)]="employeeObj.city">
+                     
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input name="date"  matInput [matDatepicker]="picker" placeholder="Enter Joining Date*" [(ngModel)]="employeeObj.date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        
+                    </mat-form-field>
+                       <div class="button">
+                        <button type="button" mat-raised-button color="primary" type="submit" (click)="addEmployee(myForm.value)" *ngIf="!isEdit">Submit</button>
+                        <button mat-raised-button color="accent" *ngIf="isEdit" (click)="updateEmployee()">Update</button>
+                    </div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</section>
+<br><br>
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Employee Name</th>
+        <th scope="col">Position</th>
+        <th scope="col">Email ID</th>
+        <th scope="col">Contact</th>
+        <th scope="col">Gender</th>
+        <th scope="col">City</th>
+        <th scope="col">Joining Date</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let employee of allEmployee">
+         <td>{{employee.name}}</td>
+         <td>{{employee.position}}</td>
+         <td>{{employee.email}}</td>
+         <td>{{employee.contact}}</td>
+         <td>{{employee.gender}}</td>
+         <td>{{employee.city}}</td>
+         <td>{{employee.date}}</td>
+         <td><button (click)="editEmployee(employee)" class="btn btn-warning">Edit</button></td>
+         <td><button (click)="deleteEmployee(employee)" class="btn btn-danger">Delete</button></td>
+
+     </tr>
+    </tbody>
+  </table>
